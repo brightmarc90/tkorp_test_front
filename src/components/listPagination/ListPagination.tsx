@@ -13,7 +13,6 @@ const ListPagination = ({count, limit, changePage}: {
 
   const handleChangePage = (event: React.MouseEvent<HTMLButtonElement> | null, newPage: number) => {
     changePage(rowsPerPage*newPage, rowsPerPage) // prev ou next
-    console.log(page, newPage)
     setPage(newPage);
   };
 
