@@ -7,3 +7,8 @@ export async function getPersons(skip?: number, limit?: number) {
     const response = await AxiosService.get(`/person?${uri}`)
     return response
 }
+
+export async function getOnePerson(personID: string) {
+    const response = await AxiosService.get(`/person/${personID}`)
+    return response
+}
