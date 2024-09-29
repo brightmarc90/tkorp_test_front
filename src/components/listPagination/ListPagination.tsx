@@ -1,3 +1,5 @@
+"use client" 
+
 import TablePagination from "@mui/material/TablePagination";
 import { useEffect, useState } from "react";
 
