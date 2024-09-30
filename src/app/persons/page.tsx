@@ -8,7 +8,6 @@ import React, { useEffect, useState } from 'react'
 import styles from './page.module.css'
 import PersonIcon from '@mui/icons-material/Person';
 import AlternateEmailSharpIcon from '@mui/icons-material/AlternateEmailSharp';
-import PhoneIphoneIcon from '@mui/icons-material/PhoneIphone';
 
 const PersonListView = () => {
     const router = useRouter()

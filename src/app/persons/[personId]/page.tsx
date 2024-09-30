@@ -25,7 +25,7 @@ const PersonDetailView = async ({params}: {params: {personId: string}}) => {
 
   return (
     <div className="container mt-5">
-      <h1 className="mt-5 mb-5">Détails du maitre</h1>
+      <h1 className="mt-5 mb-5">Détails du maître</h1>
       <div>
         {
           data && (

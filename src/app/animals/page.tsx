@@ -7,9 +7,6 @@ import { useRouter } from 'next/navigation'
 import React, { useEffect, useState } from 'react'
 import styles from './page.module.css'
 import PetsIcon from '@mui/icons-material/Pets';
-import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
-import FormatColorFillIcon from '@mui/icons-material/FormatColorFill';
-import ScaleIcon from '@mui/icons-material/Scale';
 import PersonIcon from '@mui/icons-material/Person';
 
 const AnimalListView = () => {
