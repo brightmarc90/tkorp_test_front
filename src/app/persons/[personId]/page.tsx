@@ -14,13 +14,11 @@ const PersonDetailView = async ({params}: {params: {personId: string}}) => {
     const response = await getOnePerson(personId)
     data = await response.data
   } catch (err) {
-    if(err){
-      error = "Une erreur s'est produite lors de la récupération des données."
-    }
+    error = err instanceof Error? err.message : "Une erreur s'est produite lors de la récupération des données."
   }
 
   if(error){
-    <p>{error}</p>
+    <p className='alert alert-warning'>{error}</p>
   }
 
   return (
