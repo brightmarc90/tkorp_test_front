@@ -5,6 +5,10 @@ import { getPersons } from '@/services/api/persons';
 import PersonData from '@/types/types';
 import { useRouter } from 'next/navigation';
 import React, { useEffect, useState } from 'react'
+import styles from './page.module.css'
+import PersonIcon from '@mui/icons-material/Person';
+import AlternateEmailSharpIcon from '@mui/icons-material/AlternateEmailSharp';
+import PhoneIphoneIcon from '@mui/icons-material/PhoneIphone';
 
 const PersonListView = () => {
     const router = useRouter()
@@ -27,7 +31,7 @@ const PersonListView = () => {
         execAsync(0, 10)
     }, [])
 
-    const handleClick = (event: React.MouseEvent<HTMLTableRowElement>) => {
+    const handleClick = (event: React.MouseEvent<HTMLDivElement>) => {
         router.push(`/persons/${event.currentTarget.id}`)
     }
 
@@ -41,10 +45,26 @@ const PersonListView = () => {
     }
 
     return (
-    <div>
-        <h1>Liste des maitres</h1>
+    <div className='container mt-5'>
+        <h1 className="mt-5 mb-4">Liste des maîtres</h1>
         <div>
-            <table>
+            <div className='d-flex flex-wrap justify-content-evenly'>
+                {
+                    personData?.data.map((person, index) => (
+                        <div className={`card mb-4 ${styles.Card}`} key={index} id={person.id.toString()} onClick={handleClick}>
+                            <p className='text-center mb-0'>
+                                <PersonIcon sx={{ fontSize: 100 }} color='action'/>
+                            </p>
+                            <div className="card-body">
+                                <p className={`card-title text-center ${styles.CardTitle}`}>{person.firstname+" "+person.lastname}</p>
+                                <p className={`card-text ${styles.CardText}`}><span><AlternateEmailSharpIcon sx={{ fontSize: 16 }} /></span> {person.email}</p>
+                                <p className={`card-text ${styles.CardText}`}><span><PhoneIphoneIcon sx={{ fontSize: 16 }} /></span> {person.phone_number}</p>
+                            </div>
+                        </div>
+                    ))
+                }
+            </div>
+            {/* <table>
                 <thead>
                     <tr>
                         <th>#</th>
@@ -67,7 +87,7 @@ const PersonListView = () => {
                         ))
                     }
                 </tbody>
-            </table>
+            </table> */}
             {
                 personData && (
                     <ListPagination count={personData.total} limit={personData.limit} changePage={changePage}/>
