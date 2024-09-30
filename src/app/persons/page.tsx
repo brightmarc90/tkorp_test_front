@@ -58,7 +58,7 @@ const PersonListView = () => {
                             <div className="card-body">
                                 <p className={`card-title text-center ${styles.CardTitle}`}>{person.firstname+" "+person.lastname}</p>
                                 <p className={`card-text ${styles.CardText}`}><span><AlternateEmailSharpIcon sx={{ fontSize: 16 }} /></span> {person.email}</p>
-                                <p className={`card-text ${styles.CardText}`}><span><PhoneIphoneIcon sx={{ fontSize: 16 }} /></span> {person.phone_number}</p>
+                                {/* <p className={`card-text ${styles.CardText}`}><span><PhoneIphoneIcon sx={{ fontSize: 16 }} /></span> {person.phone_number}</p> */}
                             </div>
                         </div>
                     ))

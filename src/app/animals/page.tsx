@@ -5,6 +5,12 @@ import { getAnimals } from '@/services/api/animal'
 import { AnimalData } from '@/types/types'
 import { useRouter } from 'next/navigation'
 import React, { useEffect, useState } from 'react'
+import styles from './page.module.css'
+import PetsIcon from '@mui/icons-material/Pets';
+import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
+import FormatColorFillIcon from '@mui/icons-material/FormatColorFill';
+import ScaleIcon from '@mui/icons-material/Scale';
+import PersonIcon from '@mui/icons-material/Person';
 
 const AnimalListView = () => {
     const router = useRouter()
@@ -27,7 +33,7 @@ const AnimalListView = () => {
         execAsync(0, 10)
     }, [])
 
-    const handleClick = (event: React.MouseEvent<HTMLTableRowElement>) => {
+    const handleClick = (event: React.MouseEvent<HTMLDivElement>) => {
         router.push(`/animals/${event.currentTarget.id}`)
     }
 
@@ -41,10 +47,27 @@ const AnimalListView = () => {
     }
 
     return (
-    <div>
-        <h1>Liste des animaux</h1>
+    <div className='container mt-5'>
+        <h1 className="mt-5 mb-4">Liste des animaux</h1>
         <div>
-            <table>
+            <div className='d-flex flex-wrap justify-content-evenly'>
+                {
+                    animalData?.data.map((animal, index) => (
+                        <div className={`card mb-4 ${styles.Card}`} key={index} id={animal.id.toString()} onClick={handleClick}>
+                            <img src={`/images/${animal.species}.jpg`} alt={animal.species} className={styles.ImgCard}/>
+                            <div className="card-body">
+                                <p className={`card-title text-center ${styles.CardTitle}`}>{animal.name}</p>
+                                <p className={`card-text ${styles.CardText}`}><span><PetsIcon sx={{ fontSize: 16 }} /></span> {animal.species+" / "+animal.breed}</p>
+                                {/* <p className={`card-text ${styles.CardText}`}><span><CalendarMonthIcon sx={{ fontSize: 16 }} /></span> {new Date(animal.date_of_birth).toLocaleString("fr-FR", {day: "numeric", month: "numeric", year: "numeric"})}</p>
+                                <p className={`card-text ${styles.CardText}`}><span><FormatColorFillIcon sx={{ fontSize: 16 }} /></span> {animal.color}</p>
+                                <p className={`card-text ${styles.CardText}`}><span><ScaleIcon sx={{ fontSize: 16 }} /></span> {`${animal.weight} Kg`}</p> */}
+                                <p className={`card-text ${styles.CardText}`}><span><PersonIcon sx={{ fontSize: 16 }} /></span> {animal.owner.lastname+" "+animal.owner.firstname}</p>
+                            </div>
+                        </div>
+                    ))
+                }
+            </div>
+            {/* <table>
                 <thead>
                     <tr>
                         <th>#</th>
@@ -73,7 +96,7 @@ const AnimalListView = () => {
                         ))
                     }
                 </tbody>
-            </table>
+            </table> */}
             {
                 animalData && (
                     <ListPagination count={animalData.total} limit={animalData.limit} changePage={changePage}/>
