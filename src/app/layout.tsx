@@ -19,7 +19,7 @@ export default function RootLayout({
         <header>
           <Navbar />
         </header>
-        <main>
+        <main className="mb-5">
           {children}
         </main>
       </body>

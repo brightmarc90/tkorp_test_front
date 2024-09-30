@@ -2,3 +2,6 @@ main{
   padding-top: 5rem;
   min-height: 100vh;
 }
+div.MuiTablePagination-toolbar{
+  align-items: baseline !important;
+}

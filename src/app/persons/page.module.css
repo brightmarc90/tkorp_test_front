@@ -1,0 +1,22 @@
+.Card{
+    min-width: 15rem;
+    width: 18rem;
+    cursor: pointer;
+    transition: 0.3s;
+    box-shadow: 0 0px 8px 0px #00000029
+}
+.Card:hover{
+    scale: 1.02;
+    transition: 0.3s;
+}
+.CardTitle{
+    font-weight: bold;
+}
+.CardText{
+    color: #757575;
+    font-size: 1rem;
+    margin-bottom: 0.2rem;
+}
+.CardText span{
+    color: #000;
+}
