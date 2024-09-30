@@ -175,9 +175,7 @@ const AnswersView = () => {
                         }
                     </div>
                 </div>
-            </div> {/* fin question 6 */}
-            
-                       
+            </div> {/* fin question 6 */}           
         </div>
     </div>
   )
