@@ -39,10 +39,8 @@ const AnswersView = () => {
                 setWithMostHeaviest(response5.data)
                 const response6 = await getAnswers(6)
                 setWithMostHeaviestGroup(response6.data)
-            } catch (err) {
-                if(err){
-                    setError("Une erreur s'est produite lors de la récupération des données.")
-                }
+            } catch (err: unknown) {
+                err instanceof Error? setError(err.message) : setError("Une erreur s'est produite lors de la récupération des données.")
             }
         }
         execAsync()
@@ -53,7 +51,7 @@ const AnswersView = () => {
     }
 
     if(error){
-        <p>{error}</p>
+        <p className='alert alert-warning'>{error}</p>
     }
 
     return (

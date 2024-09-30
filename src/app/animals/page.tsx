@@ -19,10 +19,8 @@ const AnimalListView = () => {
         try {
             const response = await getAnimals(skip, limit);
             setAnimalData(response.data);
-        } catch (e) {
-            if(e){
-                setError("Une erreur s'est produite lors de la récupération des données.")
-            }
+        } catch (e: unknown) {
+            e instanceof Error? setError(e.message) : setError("Une erreur s'est produite lors de la récupération des données.")
         }
     }
 
@@ -35,7 +33,7 @@ const AnimalListView = () => {
     }
 
     if (error) {
-        return <p>{error}</p>
+        return <p className='alert alert-warning'>{error}</p>
     }
 
     const changePage = (skip: number, limit: number) => {
