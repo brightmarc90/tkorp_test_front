@@ -23,4 +23,6 @@
 .ImgCard{
     height: 8rem;
     width: auto !important;
+    object-fit: cover;
+    object-position: top center;
 }
