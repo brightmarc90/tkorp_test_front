@@ -54,37 +54,12 @@ const PersonListView = () => {
                             </p>
                             <div className="card-body">
                                 <p className={`card-title text-center ${styles.CardTitle}`}>{person.firstname+" "+person.lastname}</p>
-                                <p className={`card-text ${styles.CardText}`}><span><AlternateEmailSharpIcon sx={{ fontSize: 16 }} /></span> {person.email}</p>
-                                {/* <p className={`card-text ${styles.CardText}`}><span><PhoneIphoneIcon sx={{ fontSize: 16 }} /></span> {person.phone_number}</p> */}
+                                <p className={`card-text ${styles.CardText}`}><span><AlternateEmailSharpIcon sx={{ fontSize: 16 }} /></span> {person.email}</p>                                
                             </div>
                         </div>
                     ))
                 }
             </div>
-            {/* <table>
-                <thead>
-                    <tr>
-                        <th>#</th>
-                        <th>Nom</th>
-                        <th>Prénom</th>
-                        <th>Email</th>
-                        <th>Num. Tel</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {
-                        personData?.data.map((person, index) => (
-                            <tr key={index} id={person.id.toString()} onClick={handleClick}>
-                                <td>{listIndex + index + 1}</td>
-                                <td>{person.lastname}</td>
-                                <td>{person.firstname}</td>
-                                <td>{person.email}</td>
-                                <td>{person.phone_number}</td>
-                            </tr>
-                        ))
-                    }
-                </tbody>
-            </table> */}
             {
                 personData && (
                     <ListPagination count={personData.total} limit={personData.limit} changePage={changePage}/>

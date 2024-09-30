@@ -7,29 +7,29 @@ const ListPagination = ({count, limit, changePage}: {
     count:number, 
     limit: number, 
     changePage: (skip: number, limit: number) => void}) => {
-  const [page, setPage] = useState(0);
-  const [rowsPerPage, setRowsPerPage] = useState(limit);
-  const totalPages = Math.ceil(count / rowsPerPage);
+    const [page, setPage] = useState(0);
+    const [rowsPerPage, setRowsPerPage] = useState(limit);
+    const totalPages = Math.ceil(count / rowsPerPage);
 
-  const handleChangePage = (event: React.MouseEvent<HTMLButtonElement> | null, newPage: number) => {
-    changePage(rowsPerPage*newPage, rowsPerPage) // prev ou next
-    setPage(newPage);
-  };
+    const handleChangePage = (event: React.MouseEvent<HTMLButtonElement> | null, newPage: number) => {
+        changePage(rowsPerPage*newPage, rowsPerPage) // prev ou next
+        setPage(newPage);
+    };
 
-  const handleChangeRowsPerPage = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const temp = parseInt(event.target.value, 10)
-    changePage(0, temp)
-    setPage(0)
-    setRowsPerPage(temp);
-  };
+    const handleChangeRowsPerPage = (event: React.ChangeEvent<HTMLInputElement>) => {
+        const temp = parseInt(event.target.value, 10)
+        changePage(0, temp)
+        setPage(0)
+        setRowsPerPage(temp);
+    };
 
-  useEffect(() => {
-    if (page >= totalPages && totalPages > 0) {
-        setPage(0);
-      }
-  }, [totalPages, page])
-  
-  return (
+    useEffect(() => {
+        if (page >= totalPages && totalPages > 0) {
+            setPage(0);
+        }
+    }, [totalPages, page])
+    
+    return (
     <div>
       <TablePagination
         component="div"
