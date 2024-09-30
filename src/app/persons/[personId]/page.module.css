@@ -1,0 +1,11 @@
+.DetailCard{
+    max-width: 30rem;
+    box-shadow: 0 0px 8px 0px #00000029;
+    border-radius: 1rem;
+}
+.CardText{
+    color: #757575;
+}
+.CardText span{
+    color: #000;
+}
